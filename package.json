@@ -1,16 +1,27 @@
 {
-  "name": "dragontail-experimental",
-  "version": "0.0.63",
-  "main": "dist/cjs/index.js",
+  "name": "react-tailwindcss-typescript-component-boilerplate",
+  "version": "0.0.1",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+  "types": "dist/esm/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn build:tailwind && yarn build:rollup",
+    "watch": "concurrently \"yarn watch:rollup\" \"yarn watch:tailwind\"",
+    "build:rollup": "rollup -c",
+    "build:tailwind": "tailwindcss -o src/build.css --minify",
+    "watch:rollup": "rollup -c -w",
+    "watch:tailwind": "tailwindcss -o src/build.css --minify --watch"
   },
-  "description": "A React component library built with TailwindCSS and TypeScript.",
-  "repository": "https://github.com/timthedev07/dragontail",
-  "homepage": "http://timthedev07.github.io/dragontail",
-  "author": "Tim <timpersonal07@gmail.com>",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "description": "A React component library boilerplate built with TailwindCSS and TypeScript.",
+  "repository": "https://github.com/tanishq-singh-2301/react-tailwindcss-typescript-component-boilerplate",
+  "homepage": "https://github.com/tanishq-singh-2301/react-tailwindcss-typescript-component-boilerplate#readme",
+  "author": "Tanisq Singh <tanishqsing640@gmail.com>",
   "license": "MIT",
   "private": false,
   "peerDependencies": {
@@ -24,27 +35,20 @@
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.0",
     "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.6",
+    "concurrently": "^7.3.0",
+    "postcss": "^8.4.16",
     "postcss-cli": "^9.1.0",
-    "postcss-loader": "^4.1.0",
+    "postcss-loader": "^7.0.1",
     "react-scripts": "^5.0.1",
     "rollup": "^2.67.2",
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "tailwindcss": "^3.0.24",
+    "tailwindcss": "^3.1.8",
     "tslib": "^2.4.0",
     "typescript": "^4.6.3"
   },
-  "scripts": {
-    "build": "yarn build:tailwind && yarn build:rollup",
-    "build:rollup": "rollup -c",
-    "build:tailwind": "tailwindcss -o dist/build.css --minify"
-  },
-  "files": [
-    "dist"
-  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -56,6 +60,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "dependencies": {}
+  }
 }
