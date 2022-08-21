@@ -28,10 +28,12 @@ jobs:
         yarn install
         yarn build
         
-        # create .vercel configuration
+    - name: Deploying Web App
+      run: |
+        # Build .vercel configuration
         mkdir build/.vercel
         touch build/.vercel/project.json
-        echo "{ orgId: ${{ secrets.VERCEL_ORG_ID }}, projectId: ${{ secrets.VERCEL_PROJECT_ID }} }" > build/.vercel/project.json
+        echo '{ "orgId": "${{ secrets.VERCEL_ORG_ID }}", "projectId": "${{ secrets.VERCEL_PROJECT_ID }}" }' > build/.vercel/project.json
         
-    - name: Deploying Web App
-      run: vercel deploy example/build -t ${{ secrets.VERCEL_TOKEN }} -y
+        # Deploy to vercel
+        vercel deploy example/build -t ${{ secrets.VERCEL_TOKEN }} --prod -y
