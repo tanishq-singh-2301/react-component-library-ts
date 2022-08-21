@@ -28,8 +28,10 @@ jobs:
         yarn install
         yarn build
         
+        # create .vercel configuration
+        mkdir build/.vercel
+        touch build/.vercel/project.json
+        echo "{ orgId: ${{ secrets.VERCEL_ORG_ID }}, projectId: ${{ secrets.VERCEL_PROJECT_ID }} }" > build/.vercel/project.json
+        
     - name: Deploying Web App
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.PAT }}
-        publish_dir: example/build
+      run: vercel deploy example/build -t ${{ secrets.VERCEL_TOKEN }} -y
