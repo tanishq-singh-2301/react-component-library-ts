@@ -1,8 +1,11 @@
 {
-    "name": "react-component-library-ts",
-    "repository": "https://github.com/tanishq-singh-2301/react-component-library-ts.git",
+    "name": "react-component-library-ts-",
     "version": "0.0.2",
     "description": "A component library for getting started with easy to re-use components for everyday projects.",
+    "author": "Tanishq Singh <tanishqsingh640@gmail.com>",
+    "contributors": [],
+    "repository": "https://github.com/tanishq-singh-2301/react-component-library-ts.git",
+    "license": "MIT",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "files": [
@@ -19,8 +22,6 @@
         "watch:css": "tailwindcss -i ./styles/global.css -o ./dist/index.css --watch",
         "pretty": "prettier --write src"
     },
-    "author": "Tanishq Singh <tanishqsingh640@gmail.com>",
-    "license": "MIT",
     "devDependencies": {
         "@types/node": "^17.0.21",
         "@types/react": "^18.0.17",

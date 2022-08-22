@@ -1,4 +1,4 @@
-import { Button } from 'component-library';
+import { Button } from 'react-component-library-ts';
 
 export const Home = () => {
     return (
