@@ -16,17 +16,13 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org
 
-      - name: Downloading lib_build artifact 🌨️
-        uses: actions/download-artifact@v2
-        with:
-          name: lib_build
-          path: lib_build
+      - name: Building Package 🌨️
+        run: |
+          yarn install
+          yarn build
 
       - name: Publish package on NPM 📦
-        run: |
-          cd lib_build
-          npm publish
-        
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
